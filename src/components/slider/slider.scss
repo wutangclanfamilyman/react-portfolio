@@ -1,0 +1,118 @@
+.swiper-slide {
+    width: 20%!important;
+    background-color: #fff;
+    height: 705px;
+    transition: all .3s ease .3s;
+}
+.slide-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 60px 30px;
+    filter: grayscale(100%);
+}
+.swiper-slide-active {
+    width: 40%!important;
+    background-color: black;
+    .slide-inner {
+        padding: 60px 50px;
+        filter: grayscale(0%);
+        .slide-image {
+            img {
+                padding: 0;
+            }
+        }
+        .slide-title,
+        .slide-subtitle,
+        .slide-link {
+            animation: toggleItemSlide 1s;
+            opacity: 1;
+            span {
+                animation: toggleItemSlide ease-in 2s;
+                opacity: 1;
+            }
+        }
+        .slide-count {
+            font-size: 72px;
+        }
+    }
+}
+.slide-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+.slide-subtitle {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 25px;
+    opacity: 0;
+}
+.slide-count {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-weight: 300;
+    font-size: 48px;
+}
+.slide-link {
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    justify-content: left;
+    span {
+        padding-top: 4px;
+        opacity: 0;
+    }
+}
+.slide-image {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        padding: 20px;
+        max-width: 50%;
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+    }
+}
+.swiper-left-arrow,
+.swiper-right-arrow {
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    cursor: pointer;
+    outline: none;
+    transform: translate(-50%);
+}
+.swiper-right-arrow {
+    right: -150px;
+    left: auto;
+}
+
+@keyframes toggleItemSlide {
+    0% {
+        transform: translate(-70%);
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

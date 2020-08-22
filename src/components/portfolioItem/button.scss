@@ -1,0 +1,17 @@
+.portfolio-item__live {
+    font-size: 28px;
+    text-transform: uppercase;
+    outline: none;
+    width: 320px;
+    height: 80px;
+    text-align: center;
+    padding: 22px 0;
+    border: none;
+    display: block;
+    font-weight: 600;
+    background-size: 200% auto;
+    &:hover {
+        background-position: right center;
+        color: #fff;
+    }
+}

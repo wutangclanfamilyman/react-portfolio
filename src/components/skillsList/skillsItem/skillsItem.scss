@@ -1,0 +1,45 @@
+.skills-item {
+    max-width: 90px;
+    height: 90px;
+    background-color: #0C2E49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 25%;
+    position: relative;
+    margin: 10px 50px 40px 0;
+    img {
+        width: 60px;
+    }
+    &:hover {
+        .skills-item__label {
+            transform: translate(0, 0) rotate(0);
+            opacity: 1;
+        }
+    }
+}
+.skills-item__label {
+    position: absolute;
+    top: -32px;
+    left: 0;
+    opacity: 0;
+    font-size: 14px;
+    padding: 4px 8px;
+    background-color: #fff;
+    transform-origin: left;
+    transform: translate(15px, 25px) rotate(90deg);
+    span {
+        position: relative;
+        &:after {
+            content: "";
+            width: 0;
+            height: 0;
+            bottom: -7px;
+            left: 0;
+            border-style: solid;
+            position: absolute;
+            border-width: 5px 5px 0 5px;
+            border-color: #fff transparent transparent transparent;
+        }
+    }
+}

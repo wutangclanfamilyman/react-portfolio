@@ -1,0 +1,28 @@
+.social-item {
+    width: 48px;
+    height: 48px;
+    background-color: #0C2E49;
+    border-radius: 1px;
+    margin: 0 15px;
+    &:nth-child(1) {
+        margin-left: 0;
+    }
+    a {
+        height: 100%;
+        width: 100%;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    &:hover {
+        border-radius: 25px;
+        a {
+            img {
+                transition: ease .5s;
+                transform: rotate(360deg);
+            }
+        }
+    }
+}

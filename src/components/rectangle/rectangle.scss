@@ -1,0 +1,44 @@
+.home-rectangle-top {
+    width: 300%;
+    height: 300px;
+    background: rgba(143, 155, 179, 0.3);
+    transform: rotate(-30deg) translateX(-300%);
+    position: absolute;
+    top: -30%;
+    left: -100%;
+    z-index: 0;
+}
+.home-rectangle-center-top {
+    width: 300%;
+    height: 300px;
+    background: rgba(143, 155, 179, 0.3);
+    transform: rotate(-30deg) translateX(-320%);
+    position: absolute;
+    top: 30%;
+    left: -100%;
+    z-index: 0;
+}
+.home-rectangle-center-bottom {
+    width: 300%;
+    height: 300px;
+    background: rgba(143, 155, 179, 0.3);
+    transform: rotate(-30deg) translateX(-340%);
+    position: absolute;
+    top: 52%;
+    left: -100%;
+    z-index: 0;
+}
+.home-rectangle-bottom {
+    width: 300%;
+    height: 300px;
+    background: rgba(143, 155, 179, 0.3);
+    transform: rotate(-30deg) translateX(-360%);
+    position: absolute;
+    bottom: -60%;
+    left: -100%;
+    z-index: 0;
+}
+.rectangle--animated {
+    transition: transform 3s;
+    transform: rotate(-30deg) translateX(0);
+}

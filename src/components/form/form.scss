@@ -1,0 +1,22 @@
+.contacts__form {
+    margin-top: 100px;
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.form-group {
+    position: relative;
+    span {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        font-size: 22px;
+    }
+    span.on-focused {
+        font-size: 14px;
+        bottom: 45px;
+    }
+}
