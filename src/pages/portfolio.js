@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from '../components/content/header';
 import Slider from '../components/slider';
 import Rectangle from '../components/rectangle';
@@ -11,16 +11,16 @@ export default class Portfolio extends Component {
 
     render() {
 
-        return (
-            <div className="section portfolio">
-                <div className="section-content">
-                    <div className="container">
-                        <Header header={'Portfolio'} />
-                        <Slider getData={this.getData.getPortfolioItems} />
-                    </div>
+        return ( 
+        <div className = "section portfolio" >
+            <div className = "section-content" >
+                <div className = "container" >
+                    <Header header = { 'Портфолио' }/> 
+                    <Slider getData = { this.getData.getPortfolioItems }/> 
                 </div>
-                <Rectangle classRectangle={'portfolio-rectangle'} />
-            </div>
+            </div> 
+            <Rectangle classRectangle = { 'portfolio-rectangle' }/>
+        </div>
         )
     }
 }
