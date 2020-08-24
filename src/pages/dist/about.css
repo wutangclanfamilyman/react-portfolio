@@ -1,0 +1,73 @@
+.about {
+  padding-top: 130px;
+  padding-bottom: 170px;
+  position: relative;
+}
+.about button {
+  text-transform: initial;
+}
+
+.about__intro-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+.about__intro-title span {
+  font-size: 48px;
+}
+
+.about-content {
+  min-height: 100vh;
+}
+
+.about__intro {
+  margin-bottom: 250px;
+}
+
+.about__intro-content {
+  font-size: 18px;
+  margin-bottom: 35px;
+  letter-spacing: 0.01em;
+  line-height: 180%;
+  opacity: 0;
+}
+
+.about__skills {
+  position: relative;
+}
+
+.skills-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 128px 333px 255px 301px;
+  transform: rotate(35deg);
+  opacity: 0.5;
+  position: absolute;
+  top: 40px;
+  left: -150px;
+  border-color: transparent #8F9BB3 transparent transparent;
+}
+
+.about-polygon {
+  position: absolute;
+  bottom: 0;
+  height: 300px;
+  width: 100vw;
+  background-color: #8F9BB3;
+  opacity: 0.5;
+  z-index: -1;
+  clip-path: polygon(0 46%, 100% 13%, 100% 100%, 0 100%);
+}
+
+.about-intro-enter .about__intro-title,
+.about-intro-enter .about__intro-content {
+  filter: blur(1em);
+  opacity: 0.1;
+}
+
+.about-intro-enter-done .about__intro-title,
+.about-intro-enter-done .about__intro-content {
+  filter: blur(0);
+  opacity: 1;
+}

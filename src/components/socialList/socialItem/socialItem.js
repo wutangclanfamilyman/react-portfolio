@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-
+import {CSSTransition} from 'react-transition-group';
 import './socialItem.scss';
 
 export default class SocialItem extends Component {
     render() {
 
-        const {title, icon, link } = this.props;
+        const {title, icon, link, loading } = this.props;
 
         return (
-            <li className="social-item">
-                <a href={link}>
-                    <img src={icon} alt={title} />
-                </a>
-            </li>
+            <CSSTransition classNames={'social-item'} in={true} timeout={1000}>
+                <li className="social-item">
+                    <a href={link}>
+                        <img src={icon} alt={title} />
+                    </a>
+                </li>
+            </CSSTransition>
         )
     }
 }

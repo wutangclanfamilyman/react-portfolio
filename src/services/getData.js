@@ -99,7 +99,7 @@ export default class GetData {
     }
 
     getSkillsList = async () => {
-        const res = await this.getResource(`wp/v2/posts?categories=22&per_page=16&order=asc`);
+        const res = await this.getResource(`wp/v2/posts?categories=45&per_page=16&order=asc`);
         return res.map(item => this._transformSkillsItem(item))
     }
 
@@ -111,15 +111,15 @@ export default class GetData {
         }
     }
 
-    getMoreList = async () => {
-        const res = await this.getResource(`wp/v2/posts?categories=28`);
-        return res.map(item => this._transformMoreItem(item))
+    getPublicationList = async () => {
+        const res = await this.getResource(`wp/v2/posts?categories=43`);
+        return res.map(item => this._transformPublicationItem(item))
     }
 
-    _transformMoreItem(item) {
+    _transformPublicationItem(item) {
         return {
-            piblicationFirst: item.acf.publication,
-            piblicationSecond: item.acf.publication_2
+            id: item.acf.id,
+            title: item.acf.publication
         }
     }
 

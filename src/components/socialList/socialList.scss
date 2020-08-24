@@ -4,3 +4,17 @@
     align-items: center;
     list-style: none;
 }
+.about-intro-enter {
+    .nav__social-list {
+        .social-item {
+            transform: rotateY(90deg);
+        }
+    }
+}
+.about-intro-enter-done {
+    .nav__social-list {
+        .social-item {
+            transform: rotateY(0deg);
+        }
+    }
+}

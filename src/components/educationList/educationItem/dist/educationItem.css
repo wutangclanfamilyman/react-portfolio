@@ -1,0 +1,48 @@
+.education-list__item {
+  margin-bottom: 35px;
+  position: relative;
+  padding-right: 30px;
+  transition: transform 1.5s;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.education-list__item:last-child:after {
+  display: none;
+}
+.education-list__item:after {
+  content: "";
+  width: 200px;
+  position: absolute;
+  bottom: -15px;
+  height: 1px;
+  background-color: #0C2E49;
+}
+
+.education-list__item-years {
+  font-size: 24px;
+  color: #546D88;
+  font-weight: bold;
+  padding-bottom: 12px;
+}
+
+.education-list__item-institution {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 12px;
+}
+
+.education-list__item-specialty {
+  font-size: 18px;
+  padding-bottom: 12px;
+}
+
+.education-list__item-degree {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 12px;
+}
+
+.education-list__item-done {
+  transform: translateX(0);
+  opacity: 1;
+}

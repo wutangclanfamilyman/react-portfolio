@@ -15,22 +15,23 @@ export default class SocialList extends Component {
         })
     }
 
-    renderSocialItems(socialList) {
+    renderSocialItems(socialList, loading) {
         if(socialList == null) {
             return
         }
         return socialList.map((item, index) => {
-            return <SocialItem key={index} link={item.link} title={item.title} icon={item.icon} />
+            return <SocialItem key={index} loading={loading} link={item.link} title={item.title} icon={item.icon} />
         });
     }
 
     render() {
 
         const {socialList} = this.state;
+        const {loading} = this.props;
 
         return(
             <ul className="nav__social-list">
-                {this.renderSocialItems(socialList)}
+                {this.renderSocialItems(socialList, loading)}
             </ul>
         )
     }

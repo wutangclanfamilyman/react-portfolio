@@ -4,6 +4,15 @@
     letter-spacing: 0.05em;
     font-weight: 400;
     text-transform: uppercase;
+    opacity: 0;
     margin-bottom: 40px;
     position: relative;
+}
+.header-enter {
+    filter: blur(1em);
+    opacity: 0.1;
+}
+.header-enter-done {
+    filter: blur(0);
+    opacity: 1;
 }

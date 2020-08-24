@@ -1,4 +1,4 @@
-.more-information__list {
+.publication__list {
     p {
         font-size: 24px;
         color: #546D88;
@@ -12,6 +12,13 @@
             font-weight: 500;
             line-height: 24px;
             margin-bottom: 20px;
+            opacity: 0;
+            transition: transform 1.5s;
+            transform: translateX(-100%);
+        }
+        .publication__li-done {
+            transform: translateX(0);
+            opacity: 1;
         }
     }
 }

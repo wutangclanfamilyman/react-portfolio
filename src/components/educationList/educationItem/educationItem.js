@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './educationItem.scss';
 
 export default class EducationItem extends Component {
+
     render() {
 
         const {years, institution, specialty, degree} = this.props;

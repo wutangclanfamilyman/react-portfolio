@@ -5,17 +5,27 @@
     text-transform: uppercase;
     font-size: 36px;
     font-weight: 500;
+    opacity: 0;
+    transition: all 2s;
     margin-bottom: 40px;
 }
 .subheader__icon {
-    width: 48px;
+    min-width: 48px;
     height: 48px;
     background-color: #0C2E49;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 20px;
+    transform: rotateY(90deg);
+    transition: all 2s;
     img {
         width: 32px;
+    }
+}
+.subheader-done {
+    opacity: 1;
+    .subheader__icon {
+        transform: rotateY(0);
     }
 }

@@ -1,0 +1,27 @@
+.social-item {
+  width: 48px;
+  height: 48px;
+  background-color: #0C2E49;
+  border-radius: 1px;
+  margin: 0 15px;
+  transform: rotateY(90deg);
+  transition: transform 2s, border-radius 0.3s;
+}
+.social-item:nth-child(1) {
+  margin-left: 0;
+}
+.social-item a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-item:hover {
+  border-radius: 25px;
+}
+.social-item:hover a img {
+  transition: ease 0.5s;
+  transform: rotate(360deg);
+}
