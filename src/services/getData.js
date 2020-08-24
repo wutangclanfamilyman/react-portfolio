@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class GetData {
     constructor() {
-        this._apiBase = 'http://portfolio/wp-json/';
+        this._apiBase = 'https://vladyslav-koziatnyk.000webhostapp.com/wp-json/';
     }
 
     getResource = async (url) => {

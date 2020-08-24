@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Rectangle from '../components/rectangle';
-import HomeHeader from '../components/homeHeader';
+import {CSSTransition} from 'react-transition-group';
+import Button from '../components/button';
+import {Link} from 'react-router-dom';
 import GetData from '../services/getData';
 
 import './home.scss';
@@ -36,17 +37,28 @@ export default class Home extends Component {
 
     render() {
 
-        const {title} = this.state;
+        const {title, loading} = this.state;
  
         return (
             <div className="section main">
-                <Rectangle classRectangle={'home-rectangle-top'}/>
-                <Rectangle classRectangle={'home-rectangle-center-top'}/>
-                <Rectangle classRectangle={'home-rectangle-center-bottom'}/>
-                <Rectangle classRectangle={'home-rectangle-bottom'}/>
-
+                <CSSTransition in={!loading} timeout={1000} classNames="rectangle">
+                    <div>
+                        <div className='home-rectangle-top'></div>
+                        <div className='home-rectangle-center-top'></div>
+                        <div className='home-rectangle-center-bottom'></div>
+                        <div className='home-rectangle-bottom'></div>
+                    </div>
+                </CSSTransition>
                 <div className="main-header__wrapper">
-                    <HomeHeader name={title.name} position={title.position} />
+                    <div className="main-headers">
+                        <CSSTransition in={!loading} timeout={1000} classNames="title">
+                            <div>
+                                <h1 className='main-header__title'>{title.name}</h1>
+                                <h2 className='main-header__subtitle'>{title.position}</h2>
+                            </div>
+                        </CSSTransition>
+                        <Link to="/portfolio"><Button loading={loading} label='Портфолио' type='button' /></Link>
+                    </div>
                 </div>
 
             </div>
