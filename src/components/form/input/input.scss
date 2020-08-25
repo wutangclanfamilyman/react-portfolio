@@ -10,4 +10,17 @@
 .form-group-input {
     flex: 0 0 45%;
     position: relative;
+    transition: transform 1.5s, opacity 2s;
+    transform: translateX(-100%);
+    opacity: 0;
+    &:nth-child(2) {
+        transform: translateX(100%);
+    }
+}
+.form-group-input-enter-done {
+    opacity: 1;
+    transform: translateX(0);
+    &:nth-child(2) {
+        transform: translateX(0);
+    }
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import './input.scss';
+import { CSSTransition } from 'react-transition-group';
 
 export default class Input extends Component {
     
@@ -30,13 +31,15 @@ export default class Input extends Component {
 
     render() {
 
-        const {label, id, value, onChange} = this.props;
+        const {label, id, value, onChange, loading} = this.props;
 
         return (
+            <CSSTransition in={!loading} classNames={'form-group-input'} timeout={1200}>
                 <div className="form-group form-group-input">
                     <input className="form-input" id={id} name={id} onChange={onChange} value={value} onFocus={this.onFocus} onBlur={this.onBlur} />
                     <span className={this.state.onFocused ? 'on-focused' : ''} id="label-form-name">{label}</span>
                 </div>
+            </CSSTransition>
         )
     }
 }

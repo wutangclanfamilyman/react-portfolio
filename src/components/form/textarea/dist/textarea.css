@@ -1,0 +1,22 @@
+.form-input-textarea {
+  min-width: 100%;
+  resize: none;
+  flex: 0 0 100%;
+  margin-top: 100px;
+}
+
+.form-group-textarea {
+  flex: 0 0 100%;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: transform 1.5s, opacity 2s;
+}
+.form-group-textarea span.on-focused {
+  font-size: 14px;
+  bottom: 65px;
+}
+
+.form-group-textarea-enter-done {
+  opacity: 1;
+  transform: translateY(0);
+}

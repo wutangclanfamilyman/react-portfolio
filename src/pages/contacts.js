@@ -5,6 +5,7 @@ import Form from '../components/form';
 import Rectangle from '../components/rectangle';
 import './contacts.scss';
 import GetData from '../services/getData';
+import { CSSTransition } from 'react-transition-group';
 
 export default class Contacts extends Component {
 
@@ -13,7 +14,8 @@ export default class Contacts extends Component {
     state = {
         contacts: {},
         focus: false,
-        selector: null
+        selector: null,
+        loading: true
     }
 
     componentDidMount() {
@@ -23,7 +25,7 @@ export default class Contacts extends Component {
     }
 
     onLoaded = (contacts) => {
-        this.setState({contacts})
+        this.setState({contacts, loading: false})
     }
 
     onError = () => {
@@ -40,23 +42,28 @@ export default class Contacts extends Component {
         })
     }
 
-    renderAddress(address) {
+    renderAddress(address, loading) {
         if(address == null) {
             return;
         }
         else {
-            return <div className="contacts__location"><a target={"blank"} href={`http://maps.google.com/maps?${address.link}`}><img src={address.icon} alt="location"/></a><div className="contacts__location-address">{address.link}</div></div>
+            return (
+                <>
+                    <a target={"blank"} className="contacts__location-icon" href={`http://maps.google.com/maps?${address.link}`}>
+                        <img src={address.icon} alt="location"/>
+                    </a>
+                    <div className="contacts__location-address">{address.link}</div>
+                </>
+            )
         }
     }
 
-    renderSocial(social) {
+    renderSocial(social, loading) {
         if(social == null) {
             return
         }
         else {
-           return <div className="contacts__social">
-                <SocialList social={social} />
-            </div>
+           return <SocialList social={social} loading={loading} />
         }
     }
  
@@ -71,23 +78,35 @@ export default class Contacts extends Component {
 
     render() {
 
-        const {email, social, text, address, title} = this.state.contacts;
+        const {contacts, loading} = this.state;
         return (
             <div className="section contacts">
                 <div className="section-content">
                     <div className="container">
-                        <Header header={title} />
-                        <p className="contacts__intro">
-                         {text} <a className="contacts__link" href={`mailto:${email}`}>{email}</a>
-                        </p>
-                        {this.renderAddress(address)}
-                        {this.renderSocial(social)}
+                        <Header header={contacts.title} loading={loading}/>
+                        <CSSTransition in={!loading} classNames={'contacts__intro'} timeout={1000}>
+                            <p className="contacts__intro">
+                                {contacts.text} <a className="contacts__link" href={`mailto:${contacts.email}`}>{contacts.email}</a>
+                            </p>
+                        </CSSTransition>
+                        <CSSTransition in={!loading} classNames={'contacts__location'} timeout={1100}>
+                            <div className="contacts__location">
+                                {this.renderAddress(contacts.address, loading)}
+                            </div>
+                        </CSSTransition>
+                        <CSSTransition in={!loading} classNames={'contacts__social'} timeout={1000}>
+                            <div className="contacts__social">
+                                {this.renderSocial(contacts.social, loading)}
+                            </div>
+                        </CSSTransition>
                         <div className="contacts__form">
-                            <Form />
+                            <Form loading={loading} />
                         </div>
                     </div>
                 </div>
-                <Rectangle classRectangle={'contacts-rectangle'} />
+                <CSSTransition in={!loading} timeout={1000} classNames="rectangle">
+                    <div className="contacts-rectangle"></div>
+                </CSSTransition>
             </div>
         )
     }

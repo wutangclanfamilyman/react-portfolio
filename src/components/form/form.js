@@ -38,12 +38,14 @@ export default class Form extends Component {
 
     render() {
 
+        const {loading} = this.props;
+
         return (
             <form>
-                <Input label={'Name'} id={'contacts-form-name'} span={'label-form-name'} value={this.state.name} onChange={this.onChangeName} />
-                <Input label={'E-mail'} id={'contacts-form-email'} span={'label-form-email'} value={this.state.email} onChange={this.onChangeEmail} />
-                <Textarea label={'Message'} id={'contacts-form-message'} span={'label-form-message'} value={this.state.message} onChange={this.onChangeMessage} />
-                <Button label={'Send'} type={'button'} />
+                <Input label={'Name'} id={'contacts-form-name'} span={'label-form-name'} loading={loading} value={this.state.name} onChange={this.onChangeName} />
+                <Input label={'E-mail'} id={'contacts-form-email'} span={'label-form-email'} loading={loading} value={this.state.email} onChange={this.onChangeEmail} />
+                <Textarea label={'Message'} id={'contacts-form-message'} span={'label-form-message'} loading={loading} value={this.state.message} onChange={this.onChangeMessage} />
+                <Button label={'Send'} type={'button'} loading={loading} />
             </form>
         )
     }

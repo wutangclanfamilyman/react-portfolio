@@ -5,16 +5,14 @@ import './socialItem.scss';
 export default class SocialItem extends Component {
     render() {
 
-        const {title, icon, link, loading } = this.props;
+        const {title, icon, link} = this.props;
 
         return (
-            <CSSTransition classNames={'social-item'} in={true} timeout={1000}>
                 <li className="social-item">
                     <a href={link}>
                         <img src={icon} alt={title} />
                     </a>
                 </li>
-            </CSSTransition>
         )
     }
 }
