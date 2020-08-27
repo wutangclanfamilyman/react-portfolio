@@ -1,6 +1,10 @@
 .portfolio-item {
     padding-bottom: 150px;
 }
+.portfolio-item__intro {
+    height: calc(100vh - 150px);
+    position: relative;
+}
 .portfolio-item__info {
     margin-top: 100px;
     ul {
@@ -31,12 +35,15 @@
 .portfolio-item__back {
     font-size: 28px;
     text-transform: uppercase;
+    transition: all .3s;
     outline: none;
     width: 320px;
     margin-top: 200px;
     height: 80px;
     text-align: center;
     padding: 22px 0;
+    background-image: linear-gradient(90.21deg, #0C4049 1.48%, #546E89 51%, #0C4049 100%);
+    box-shadow: 1px 1px 10px #546D88;
     border: none;
     display: block;
     font-weight: 600;
@@ -57,6 +64,7 @@
     width: 500px;
     z-index: 10;
     position: absolute;
+    transition: all 1s;
     img {
         width: 100%;
     }
@@ -75,6 +83,7 @@
     transform-origin:0 100% 0;
     width: 200px;
     z-index: 10;
+    transition: all 1s;
     img {
         width: 100%;
     }
@@ -90,6 +99,7 @@
     right: 0;
     z-index: 10;
     position: absolute;
+    transition: all 1s;
     transform: perspective(3000px) scaleZ(2) rotateY(-30deg);
     transform-origin:0 100% 0;
     width: 130px;
@@ -102,4 +112,34 @@
         right: 20px;
         box-shadow: 1px 1px 10px #fff;
     }
+}
+
+@mixin arrow-transitions($rot: 0deg) {
+    transform: translate(-50%, -50%) rotateZ($rot);
+}
+.portfolio-item__details {
+    display: block;
+    width: 100px;
+    height: 100px;  
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transition: all 2s;
+    opacity: 0;
+    @include arrow-transitions(0deg);
+    &:hover {
+        cursor: pointer;
+        .arrow {
+        top: 50%;
+        &:before {
+            @include arrow-transitions(-30deg);
+        }
+        &:after {
+            @include arrow-transitions(30deg);
+        }      
+        }
+    }
+}
+.portfolio-item__details-enter-done {
+    opacity: 1;
 }

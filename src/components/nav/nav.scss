@@ -8,7 +8,7 @@
     width: calc(100vw - 120px);
     background: linear-gradient(180deg, #0C2E49 0%,#8F9BB3 100%);
     visibility: hidden;
-    transition: 0.5s opacity;
+    transition: opacity .5s;
     padding: 50px;
 }
 .nav--active {
@@ -28,11 +28,15 @@
         list-style-type: none;
         li {
             margin-bottom: 60px;
+            transition: all .5s;
+            transform: translateX(-25%);
+            opacity: 0;
             a {
                 color: #fff;
                 font-weight: 300;
                 font-size: 64px;
                 line-height: 85px;
+                transition: all .3s;
                 cursor: pointer;
                 text-transform: uppercase;
                 &:hover {
@@ -47,11 +51,33 @@
     bottom: 50px;
     left: 50px;
     font-size: 24px;
+    transform: translateY(25%);
+    opacity: 0;
     line-height: 32px;
+    transition: all .5s;
     color: #fff;
 }
 .nav_social {
     position: absolute;
     bottom: 50px;
     right: 50px;
+}
+.nav--active {
+    .nav__social-list {
+        .social-item {
+            transform: rotateY(0deg);
+        }
+    }
+    .nav__list {
+        ul {
+            li {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+    .nav__rights {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

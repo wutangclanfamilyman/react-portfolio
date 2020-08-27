@@ -18,3 +18,10 @@
         }
     }
 }
+.nav--active {
+    .nav__social-list {
+        .social-item {
+            transform: rotateY(0deg);
+        }
+    }
+}

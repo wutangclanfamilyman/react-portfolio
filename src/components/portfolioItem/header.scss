@@ -5,6 +5,9 @@
     text-transform: uppercase;
     font-size: 64px;
     margin-bottom: 30px;
+    filter: blur(1em);
+    opacity: 0.1;
+    transition: all 1s;
 }
 .portfolio-item__header-circle {
     position: absolute;
@@ -16,4 +19,9 @@
     border-radius: 150%;
     z-index: -1;
     left: -150px;
+    transition: all 1s;
+}
+.portfolio-item__header-enter-done {
+    filter: blur(0);
+    opacity: 1;
 }

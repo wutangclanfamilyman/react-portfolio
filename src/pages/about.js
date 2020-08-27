@@ -41,11 +41,22 @@ export default class About extends Component {
         
     }
 
+    async componentWillUnmount() {
+        await this.onScrollToTop();
+        document.querySelector('.content').removeEventListener('scroll', this.onScrollEvent)
+    }
+
     onScrollEvent() {
         this.ifVisibleAll(document.querySelectorAll('.subheader'), 'subheader-done');
         this.ifVisibleAll(document.querySelectorAll('.education-list__item'), 'education-list__item-done');
         this.ifVisibleAll(document.querySelectorAll('.skills-item'), 'skills-item-done');
         this.ifVisibleAll(document.querySelectorAll('.publication__list ul li'), 'publication__li-done');
+    }
+
+    onScrollToTop() {
+        document.querySelector('.content').scrollTo({
+            top: 0
+        })
     }
 
     onLoaded = (about) => {
@@ -68,6 +79,10 @@ export default class About extends Component {
                 }
             }
         })
+    }
+
+    onScrollToDetails() {
+        document.querySelector('.about__details').scrollIntoView({block: "center", behavior: "smooth"})
     }
 
     onError = (err) => {
@@ -111,8 +126,15 @@ export default class About extends Component {
                             <div className="col-6 about__photo">
                                 <Photo loading={loading} photo={about.photo} />
                             </div>
+                            <CSSTransition in={!this.state.loading} classNames='about-item__details' timeout={1200} >
+                            <div className="about-item__details" onClick={this.onScrollToDetails}>
+                                <div className="arrow"></div>
+                                <div className="arrow"></div>
+                                <div className="arrow"></div>
+                            </div>
+                            </CSSTransition>
                         </div>
-                        <div className="row">
+                        <div className="row about__details">
                             <div className="col-6 about__education">
                                 <SubHeader loading={loading} icon={'img/education.svg'} title={'Образование'} />
                                 <EducationList getData={this.getData.getEducationList}/>

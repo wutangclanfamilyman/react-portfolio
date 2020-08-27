@@ -1,0 +1,81 @@
+.portfolio {
+  position: relative;
+  height: 100%;
+}
+.portfolio .container {
+  max-width: 100%;
+  height: 100%;
+  margin-left: 120px;
+  position: relative;
+}
+.portfolio .container div {
+  height: 100%;
+}
+.portfolio .section-content {
+  height: 100%;
+}
+
+.portfolio-nav {
+  position: absolute;
+  bottom: 20px;
+  height: auto !important;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-prev-slide,
+.portfolio-next-slide {
+  width: 64px;
+  margin: 0 16px;
+  position: relative;
+  cursor: pointer;
+  height: 64px !important;
+  border-radius: 150%;
+  box-shadow: 1px 1px 10px #000;
+  background-image: linear-gradient(90.21deg, #0C4049 1.48%, #546E89 51%, #0C4049 100%);
+  transition: all 0.3s;
+  background-size: 200% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(400%);
+}
+.portfolio-prev-slide:hover,
+.portfolio-next-slide:hover {
+  background-position: right center;
+}
+.portfolio-prev-slide:before, .portfolio-prev-slide:after,
+.portfolio-next-slide:before,
+.portfolio-next-slide:after {
+  transition: all 0.4s ease;
+  content: "";
+  display: block;
+  position: absolute;
+  background: #fff;
+  width: 4px;
+  height: 24px;
+  border-radius: 10px;
+  transform: translate(-50%, -30%) rotateZ(45deg);
+}
+.portfolio-prev-slide:after,
+.portfolio-next-slide:after {
+  transform: translate(-50%, 30%) rotateZ(125deg);
+}
+
+.portfolio-next-slide {
+  background-image: linear-gradient(90.21deg, #546E89 1.48%, #0C4049 51%, #546E89 100%);
+}
+.portfolio-next-slide:before {
+  transform: translate(50%, 30%) rotateZ(225deg);
+}
+.portfolio-next-slide:after {
+  transform: translate(50%, -30%) rotateZ(135deg);
+}
+
+.nav-enter-done .portfolio-next-slide,
+.nav-enter-done .portfolio-prev-slide {
+  transform: translateY(0);
+}

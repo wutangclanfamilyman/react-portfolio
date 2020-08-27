@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import {Header, Description, Button, LogoTop} from '../components/portfolioItem';
 import SubHeader from '../components/subheader';
+import Radium from 'radium';
 import {Link} from 'react-router-dom';
 
 import './portfolioItem.scss';
 import GetData from '../services/getData';
+import { CSSTransition } from 'react-transition-group';
 
-export default class PortfolioItem extends Component {
+class PortfolioItem extends Component {
 
     getData = new GetData();
 
@@ -14,10 +16,12 @@ export default class PortfolioItem extends Component {
         super(props);
 
         this.renderTechnologiesList = this.renderTechnologiesList.bind(this);
+        this.onScrollEvent = this.onScrollEvent.bind(this);
     }
 
     state = {
-        data: {}
+        data: {},
+        loading: true
     }
 
     renderTechnologiesList(technologies) {
@@ -28,40 +32,80 @@ export default class PortfolioItem extends Component {
             }) 
         }
     }
+    
+
+    onScrollEvent() {
+        this.ifVisibleAll(document.querySelectorAll('.subheader'), 'subheader-done');
+    }
+
+    ifVisibleAll(selectors, animation) {
+        selectors.forEach((item) => {
+            let bounding = item.getBoundingClientRect();
+            if (
+                bounding.top >= 0 &&
+                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            ) {
+                if(!item.classList.contains(animation)) {              
+                    item.classList.add(animation)
+                }
+            }
+        })
+    }
+
+    onScrollToDetails() {
+        document.querySelector('.portfolio-item__info').scrollIntoView({block: "center", behavior: "smooth"})
+        
+    }
 
     async componentDidMount() {
 
         await this.getData.getPortfolioItem(this.props.itemId)
             .then(
-                (data) => this.setState({data})
+                (data) => this.setState({data, loading: false})
             )
             .catch(
-                console.log('Error')
+                this.setState({
+                    loading: false
+                })
             )
 
         document.querySelector('.content').style.overflowY = 'auto';
-        document.querySelector('.left-navbar').style = `background: linear-gradient(180deg, ${this.state.data.bgColor} 0%, #8F9BB3 100%);`;
-        document.querySelector('.nav').style = `background: linear-gradient(180deg, ${this.state.data.bgColor} 0%, #8F9BB3 100%)`;
+        document.querySelector('.content').addEventListener('scroll', this.onScrollEvent)
     }
 
-    componentWillUnmount() {
-        document.querySelector('.content').style.overflowY = 'hidden';
-        document.querySelector('.left-navbar').style = '';
-        document.querySelector('.nav').style = '';
+    onScrollToTop() {
+        document.querySelector('.content').scrollTo({
+            top: 0
+        })
+    }
+
+    async componentWillUnmount() {
+        await this.onScrollToTop();
+        document.querySelector('.content').removeEventListener('scroll', this.onScrollEvent)
     }
 
     render() {
         
         const {title, image, bgColor, release, liveLink, desktop, tablet, mobile, done, about, technologies} = this.state.data;
+        const arrowColor = bgColor ? {':after, :before': {background: bgColor}} : {':after, :before': {background: "#fff"}};
 
         return (
             <div className="section portfolio-item">
-                <LogoTop logo={image} title={title} bgColor={bgColor} />
+                <LogoTop logo={image} title={title} bgColor={bgColor} loading={this.state.loading} />
                 <div className="section-content">
                     <div className="container">
-                        <Header title={title} />
-                        <Description done={done} about={about} />
-                        <Button link={liveLink} bgColor={bgColor} />
+                        <div className="portfolio-item__intro">
+                            <Header title={title} loading={this.state.loading} />
+                            <Description done={done} about={about} loading={this.state.loading} />
+                            <Button link={liveLink} loading={this.state.loading} />
+                            <CSSTransition in={!this.state.loading} classNames='portfolio-item__details' timeout={1200}>
+                                <div className="portfolio-item__details" onClick={this.onScrollToDetails}>
+                                    <div className="arrow"></div>
+                                    <div className="arrow"></div>
+                                    <div className="arrow"></div>
+                                </div>
+                            </CSSTransition>
+                        </div>
                         <div className="row portfolio-item__info">
                             <div className="col-6 release">
                                 <SubHeader icon={'../img/release.svg'} title={'Release'} style={{backgroundColor: bgColor}} />
@@ -84,10 +128,12 @@ export default class PortfolioItem extends Component {
                                 </div>
                             </div>
                         </div>
-                        <Link to="/portfolio" style={{backgroundImage: `linear-gradient(90deg, ${bgColor} 1.48%, #546E89 99.81%)`, boxShadow: `1px 1px 10px ${bgColor}`}} className="portfolio-item__back">Back to portfolio</Link>
+                        <Link to="/portfolio" className="portfolio-item__back">Back to portfolio</Link>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+export default Radium(PortfolioItem);

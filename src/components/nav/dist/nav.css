@@ -1,0 +1,79 @@
+.nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  height: 100vh;
+  z-index: 9999;
+  width: calc(100vw - 120px);
+  background: linear-gradient(180deg, #0C2E49 0%, #8F9BB3 100%);
+  visibility: hidden;
+  transition: opacity 0.5s;
+  padding: 50px;
+}
+
+.nav--active {
+  visibility: visible;
+  opacity: 0.95;
+}
+
+.nav__header {
+  color: #fff;
+  font-weight: bold;
+  font-size: 72px;
+  text-transform: uppercase;
+  line-height: 96px;
+  margin-bottom: 80px;
+}
+
+.nav__list ul {
+  list-style-type: none;
+}
+.nav__list ul li {
+  margin-bottom: 60px;
+  transition: all 0.5s;
+  transform: translateX(-25%);
+  opacity: 0;
+}
+.nav__list ul li a {
+  color: #fff;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 85px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.nav__list ul li a:hover {
+  color: #a5cbeb;
+}
+
+.nav__rights {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  font-size: 24px;
+  transform: translateY(25%);
+  opacity: 0;
+  line-height: 32px;
+  transition: all 0.5s;
+  color: #fff;
+}
+
+.nav_social {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.nav--active .nav__social-list .social-item {
+  transform: rotateY(0deg);
+}
+.nav--active .nav__list ul li {
+  transform: translateX(0);
+  opacity: 1;
+}
+.nav--active .nav__rights {
+  transform: translateY(0);
+  opacity: 1;
+}

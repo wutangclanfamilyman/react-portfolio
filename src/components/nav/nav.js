@@ -10,7 +10,8 @@ export default class Nav extends Component {
     getData = new GetData();
 
     state = {
-        social: null
+        social: null,
+        loading: true
     }
 
     componentDidMount() {
@@ -20,7 +21,7 @@ export default class Nav extends Component {
     }
 
     onLoaded = (social) => {
-        this.setState({social})
+        this.setState({social, loading: false})
     }
 
     onError = (err) => {
@@ -35,7 +36,7 @@ export default class Nav extends Component {
             return
         }
         else {
-            return <SocialList social={social} />
+            return <SocialList loading={this.state.loading} social={social} />
         }
     }
 

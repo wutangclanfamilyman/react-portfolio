@@ -12,3 +12,7 @@
 .about-intro-enter-done .nav__social-list .social-item {
   transform: rotateY(0deg);
 }
+
+.nav--active .nav__social-list .social-item {
+  transform: rotateY(0deg);
+}

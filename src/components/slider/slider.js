@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {withRouter} from 'react-router-dom';
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
+import {withRouter, Link} from 'react-router-dom';
+import Slick from 'react-slick';
+import { CSSTransition } from 'react-transition-group';
+import "../../../node_modules/slick-carousel/slick/slick.css";
+import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import './slider.scss';
-
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 class Slider extends Component {
 
+    constructor(props) {
+        super(props);
+        this.onNextSlide = this.onNextSlide.bind(this);
+        this.onPrevSlide = this.onPrevSlide.bind(this);
+    }
+
     state = {
-        idSlider: 'swiper-portfolio',
-        portfolioList: []
+        portfolioList: [],
+        loading: true,
+        settings: {
+            className: "center",
+            speed: 500,
+            arrows: false,
+            slidesToShow: 3,
+            slidesToScroll: 1
+        }
     }
 
     setCount(count) {
@@ -34,65 +44,88 @@ class Slider extends Component {
             });
     }
 
+    onNextSlide() {
+        this.slider.slickNext();
+    }
+
+    onPrevSlide() {
+        this.slider.slickPrev();
+    }
+
     onLoadedItems (portfolioList) {
         this.setState({
-            portfolioList 
+            portfolioList,
+            loading: false
         })
     }
 
     renderSlides(list) {
         return list.map((slide, index) => {
             const {id, title, done, image, bgColor, textColor} = slide;
-
-            return <SwiperSlide key={id}>
-                <div className="slide-inner" style={{color: textColor, backgroundColor: bgColor}}>
-                    <div className="slide-title">{title}</div>
-                    <div className="slide-subtitle">{done}</div>
-                    <div className="slide-link" style={{color: textColor}} onClick={() => {this.props.history.push(`/portfolio/${id}`)}}>Детальнее 
-                        <span>
-                            <svg width="24" height="13" viewBox="0 0 24 13" fill="none" >
-                                <path d="M22 6.5L18 4.33334V5.95834H3V7.04167H18V8.66667L22 6.5Z" fill={`${textColor}`}/>
-                            </svg>
-                        </span>
+            return (
+                    <div className="portfolio__item" key={id} >
+                        
+                            <div className="portfolio__item-inner" style={{backgroundColor: bgColor, color: textColor}}>
+                                <div className="portfolio__item-content">
+                                    <div className="item-title">
+                                        {title}
+                                    </div>
+                                    <div className="item-done">
+                                        {done}
+                                    </div>
+                                    <div className="item-link">
+                                        <Link style={{color: textColor}} to={`/portfolio/${id}`}>Просмотреть 
+                                        <svg width="27" height="17" viewBox="0 0 27 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g filter="url(#filter0_d)">
+                                            <path d="M23 6.5L19 4.33334V5.95834H4V7.04167H19V8.66667L23 6.5Z" fill={textColor} fill-opacity="0.87"/>
+                                            </g>
+                                            <defs>
+                                            <filter id="filter0_d" x="-3" y="0" width="32" height="21" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                                            <feOffset dy="4"/>
+                                            <feGaussianBlur stdDeviation="2"/>
+                                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                                            </filter>
+                                            </defs>
+                                        </svg>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className="portfolio__item-image">
+                                    <img src={image} alt={title}></img>
+                                </div>
+                                <div className="portfolio__item-count">
+                                    {this.setCount(index + 1)}
+                                </div>
+                            </div>
+                        
                     </div>
-                    <div className="slide-image">
-                        <img src={image} alt={title} />
-                    </div>
-                    <div className="slide-count">{this.setCount(+index + 1)}</div>
-                </div>
-            </SwiperSlide>
+            )
         });
     }
     
     render() {
 
-        const {portfolioList} = this.state;
-
+        const {portfolioList, settings} = this.state;
         return (
-            <>
-                <div className="swiper-left-arrow">
-                    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M46.23 49.77L32.49 36L46.23 22.23L42 18L24 36L42 54L46.23 49.77Z" fill="#0C2E49"/>
-                    </svg>
+            <div>
+                <CSSTransition in={!this.state.loading} classNames={'slider'} timeout={1000}>
+                    <Slick ref={c => (this.slider = c)} {...settings}>
+                        {this.renderSlides(portfolioList)}
+                    </Slick>
+                </CSSTransition>
+                <CSSTransition in={!this.state.loading} classNames={'nav'} timeout={3000} >
+                <div className="portfolio-nav">
+                    <div className="portfolio-prev-slide" onClick={this.onPrevSlide}>
+                    </div>
+                    <div className="portfolio-next-slide" onClick={this.onNextSlide}>
+                    </div>
                 </div>
-                <div className="swiper-right-arrow">
-                    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.7695 49.77L39.5095 36L25.7695 22.23L29.9995 18L47.9995 36L29.9995 54L25.7695 49.77Z" fill="#0C2E49"/>
-                    </svg>
-                </div>
-                <Swiper 
-                    id={this.idSlider}
-                    spaceBetween={0}
-                    slidesPerView={4}
-                    centeredSlides={true}
-                    navigation={{
-                        nextEl: '.swiper-right-arrow',
-                        prevEl: '.swiper-left-arrow'
-                    }}
-                >
-                    {this.renderSlides(portfolioList)}
-                </Swiper>
-            </>
+                </CSSTransition>
+            </div>
         )
     }
 

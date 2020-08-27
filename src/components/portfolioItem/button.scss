@@ -7,11 +7,20 @@
     text-align: center;
     padding: 22px 0;
     border: none;
+    cursor: pointer;
+    background-image: linear-gradient(90.21deg, #0C4049 1.48%, #546E89 51%, #0C4049 100%);
+    box-shadow: 1px 1px 10px #546D88;
+    transition: opacity 1.8s, background-position .3s;
     display: block;
     font-weight: 600;
+    color: #fff;
+    opacity: 0;
     background-size: 200% auto;
+    transition: all .3s;
     &:hover {
         background-position: right center;
-        color: #fff;
     }
+}
+.portfolio-item__live-enter-done {
+    opacity: 1;
 }
