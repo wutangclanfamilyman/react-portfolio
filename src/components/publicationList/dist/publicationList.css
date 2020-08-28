@@ -20,3 +20,21 @@
   transform: translateX(0);
   opacity: 1;
 }
+
+@media screen and (max-width: 1440px) {
+  .publication__list p {
+    font-size: 20px;
+  }
+  .publication__list ul li {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .publication__list p {
+    font-size: 18px;
+  }
+  .publication__list ul li {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}

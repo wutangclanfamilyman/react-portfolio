@@ -20,3 +20,24 @@
         bottom: 45px;
     }
 }
+
+@media screen and (max-width: 1920px) {
+    .form-input-textarea {
+        margin-top: 30px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .contacts__form {
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .contacts__social {
+        .nav__social-list {
+            flex-wrap: wrap;
+            .social-item {
+                margin: 10px;
+            }
+        }
+    }
+}

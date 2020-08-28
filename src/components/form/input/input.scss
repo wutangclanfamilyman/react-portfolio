@@ -13,6 +13,9 @@
     transition: transform 1.5s, opacity 2s;
     transform: translateX(-100%);
     opacity: 0;
+    span {
+        transition: all .3s;
+    }
     &:nth-child(2) {
         transform: translateX(100%);
     }
@@ -22,5 +25,13 @@
     transform: translateX(0);
     &:nth-child(2) {
         transform: translateX(0);
+    }
+}
+@media screen and (max-width: 768px) {
+    .form-group-input {
+        flex: 0 0 100%;
+    }
+    .form-group {
+        margin-bottom: 20px;
     }
 }

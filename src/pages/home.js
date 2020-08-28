@@ -42,7 +42,7 @@ export default class Home extends Component {
         return (
             <div className="section main">
                 <CSSTransition in={!loading} timeout={1000} classNames="rectangle">
-                    <div>
+                    <div className="home-rectangle">
                         <div className='home-rectangle-top'></div>
                         <div className='home-rectangle-center-top'></div>
                         <div className='home-rectangle-center-bottom'></div>
@@ -52,7 +52,7 @@ export default class Home extends Component {
                 <div className="main-header__wrapper">
                     <div className="main-headers">
                         <CSSTransition in={!loading} timeout={1000} classNames="title">
-                            <div>
+                            <div className="home-titles">
                                 <h1 className='main-header__title'>{title.name}</h1>
                                 <h2 className='main-header__subtitle'>{title.position}</h2>
                             </div>

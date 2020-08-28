@@ -25,3 +25,10 @@
   transition: ease 0.5s;
   transform: rotate(360deg);
 }
+
+@media screen and (max-width: 480px) {
+  .social-item {
+    width: 42px;
+    height: 42px;
+  }
+}

@@ -19,3 +19,33 @@
 .logo-top-enter-done {
     transform: translate(0, 0);
 }
+
+@media screen and (max-width: 1440px) {
+    .logo-top {
+        width: 400px;
+        height: 400px;
+        img {
+            padding-right: 30px;
+            padding-top: 40px;
+            padding-left: 210px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .logo-top {
+        width: 320px;
+        z-index: 9999;
+        height: 320px;
+        img {
+            padding-right: 30px;
+            padding-top: 40px;
+            padding-left: 180px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .logo-top {
+        display: none;
+    }
+}

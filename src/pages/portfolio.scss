@@ -74,3 +74,39 @@
         transform: translateY(0);
     }
 }
+
+@media screen and (max-width: 1440px) {
+    .portfolio {
+        .container {
+            margin-left: 100px;
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .portfolio {
+        .container {
+            margin-left: 0;
+            padding-left: 100px;
+        }
+    }
+    .portfolio-nav {
+        left: 48px;
+        bottom: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .portfolio {
+        .container {
+            margin-left: 0;
+            padding-left: 0;
+            padding-top: 80px;
+            padding-right: 0;
+        }
+    }
+    .portfolio-nav {
+        justify-content: flex-end;
+        bottom: 20px;
+        left: auto;
+        right: 30px;
+    }
+}

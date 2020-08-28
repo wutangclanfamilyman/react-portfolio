@@ -128,3 +128,30 @@
   filter: blur(0);
   opacity: 1;
 }
+
+@media screen and (max-width: 1440px) {
+  .main-header__title {
+    font-size: 52px;
+    line-height: 54px;
+  }
+
+  .main-header__subtitle {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .main-headers {
+    padding: 0 15px;
+  }
+
+  .main-header__title {
+    font-size: 36px;
+    line-height: 42px;
+    padding-bottom: 10px;
+  }
+
+  .main-header__subtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

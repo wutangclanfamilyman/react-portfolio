@@ -22,7 +22,23 @@ class Slider extends Component {
             speed: 500,
             arrows: false,
             slidesToShow: 3,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                        className: "left"
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        className: "left"
+                    }
+                }
+            ]
         }
     }
 

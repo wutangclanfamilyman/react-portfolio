@@ -96,3 +96,43 @@
 .about-item__details-enter-done {
     opacity: 1;
 }
+
+@media screen and (max-width: 1440px) {
+    .about {
+        padding-top: 100px;
+    }
+    .about__intro-title {
+        font-size: 20px;
+    }
+    .about__intro-content {
+        font-size: 16px;
+    }
+    .about-item__details {
+        display: none;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .about__intro-content {
+        padding-right: 50px;
+    }
+    .about__intro {
+        margin-bottom: 50px;
+    }
+    .about__photo {
+        margin-bottom: 100px;
+    }
+    .about__more {
+        padding-right: 40px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .about {
+        padding-bottom: 50px;
+    }
+    .about__intro-title {
+        font-size: 18px;
+    }
+    .about__intro-content {
+        font-size: 14px;
+    }
+}

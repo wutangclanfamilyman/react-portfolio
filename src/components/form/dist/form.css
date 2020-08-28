@@ -1,0 +1,42 @@
+.contacts__form {
+  margin-top: 100px;
+}
+.contacts__form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group {
+  position: relative;
+}
+.form-group span {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  font-size: 22px;
+}
+.form-group span.on-focused {
+  font-size: 14px;
+  bottom: 45px;
+}
+
+@media screen and (max-width: 1920px) {
+  .form-input-textarea {
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .contacts__form {
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contacts__social .nav__social-list {
+    flex-wrap: wrap;
+  }
+  .contacts__social .nav__social-list .social-item {
+    margin: 10px;
+  }
+}

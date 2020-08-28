@@ -46,3 +46,20 @@
   transform: translateX(0);
   opacity: 1;
 }
+
+@media screen and (max-width: 1440px) {
+  .education-list__item-years {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .education-list__item-years {
+    font-size: 16px;
+  }
+
+  .education-list__item-specialty,
+.education-list__item-done,
+.education-list__item-institution {
+    font-size: 15px;
+  }
+}

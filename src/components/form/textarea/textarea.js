@@ -21,7 +21,7 @@ export default class Textarea extends Component {
     }
 
     onBlur() {
-        if(!this.state.value) {
+        if(!this.props.value) {
             this.setState({
                 onFocused: false
             })

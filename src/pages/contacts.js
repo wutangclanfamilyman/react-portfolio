@@ -22,6 +22,13 @@ export default class Contacts extends Component {
         this.getData.getContacts()
             .then((result) => this.onLoaded(result))
             .catch(this.onError)
+        this.onScrollAdd();
+    }
+
+    onScrollAdd() {
+        if(window.innerWidth <= 1440) {
+            document.querySelector('.content').style.overflowY = "auto";
+        }
     }
 
     onLoaded = (contacts) => {

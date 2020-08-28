@@ -120,3 +120,33 @@ p a:hover {
   flex: 0 0 50%;
   padding-right: 15px;
 }
+
+@media screen and (max-width: 1440px) {
+  .container {
+    max-width: 1140px;
+    margin-left: 110px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 968px;
+    padding-left: 110px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .col-6 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .col-6 {
+    padding: 0;
+  }
+}

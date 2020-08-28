@@ -22,3 +22,30 @@
         }
     }
 }
+
+@media screen and (max-width: 1440px) {
+    .publication__list {
+        p {
+            font-size: 20px;
+        }
+        ul {
+            li  {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .publication__list {
+        p {
+            font-size: 18px;
+        }
+        ul {
+            li  {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+    }
+}

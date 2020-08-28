@@ -38,3 +38,16 @@
   top: 12px;
   transform: rotate(-45deg);
 }
+
+@media screen and (max-width: 1440px) {
+  .toggle-btn {
+    left: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .toggle-btn {
+    top: 30px;
+    right: 20px;
+    left: auto;
+  }
+}
