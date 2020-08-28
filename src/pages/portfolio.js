@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../components/content/header';
 import Slider from '../components/slider';
-import Rectangle from '../components/rectangle';
 import './portfolio.scss';
 import GetData from '../services/getData';
 

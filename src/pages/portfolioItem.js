@@ -3,6 +3,7 @@ import {Header, Description, Button, LogoTop} from '../components/portfolioItem'
 import SubHeader from '../components/subheader';
 import Radium from 'radium';
 import {Link} from 'react-router-dom';
+import {ifVisibleAll} from '../services/static';
 
 import './portfolioItem.scss';
 import GetData from '../services/getData';
@@ -35,21 +36,7 @@ class PortfolioItem extends Component {
     
 
     onScrollEvent() {
-        this.ifVisibleAll(document.querySelectorAll('.subheader'), 'subheader-done');
-    }
-
-    ifVisibleAll(selectors, animation) {
-        selectors.forEach((item) => {
-            let bounding = item.getBoundingClientRect();
-            if (
-                bounding.top >= 0 &&
-                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-            ) {
-                if(!item.classList.contains(animation)) {              
-                    item.classList.add(animation)
-                }
-            }
-        })
+        ifVisibleAll(document.querySelectorAll('.subheader'), 'subheader-done');
     }
 
     onScrollToDetails() {
@@ -87,7 +74,6 @@ class PortfolioItem extends Component {
     render() {
         
         const {title, image, bgColor, release, liveLink, desktop, tablet, mobile, done, about, technologies} = this.state.data;
-        const arrowColor = bgColor ? {':after, :before': {background: bgColor}} : {':after, :before': {background: "#fff"}};
 
         return (
             <div className="section portfolio-item">

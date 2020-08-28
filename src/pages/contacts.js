@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import SocialList from '../components/socialList';
 import {Header} from '../components/content';
 import Form from '../components/form';
-import Rectangle from '../components/rectangle';
 import './contacts.scss';
+
 import GetData from '../services/getData';
 import { CSSTransition } from 'react-transition-group';
 

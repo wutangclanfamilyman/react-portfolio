@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {CSSTransition} from 'react-transition-group';
 import './socialItem.scss';
 
 export default class SocialItem extends Component {

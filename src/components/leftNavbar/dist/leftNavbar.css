@@ -10,7 +10,7 @@
   background: linear-gradient(180deg, #0C2E49 0%, #8F9BB3 100%);
 }
 
-.left-navbar--animated {
+.left-navbar--loaded {
   left: 0;
   opacity: 1;
 }

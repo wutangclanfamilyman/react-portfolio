@@ -1,25 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './photo.scss';
 import { CSSTransition } from 'react-transition-group';
 
-export default class Photo extends Component {
-
-    render() {
-
-        const {photo, loading} = this.props;
-
-        return (
-            <CSSTransition in={!loading} timeout={1000} classNames={'about__photo-wrapper'}>
-                <div className='about__photo-wrapper'>
-                    <div className="about__photo-rectangle">
-                        <img src={photo} alt="Vladyslav Koziatnyk"/>
-                        <div className="photo-fill"></div>
-                    </div>
-                    <svg width="400" height="500">
-                        <rect width="400" height="500" />
-                    </svg>
+const Photo = (props) => {
+    return (
+        <CSSTransition in={!props.loading} timeout={1000} classNames={'about__photo-wrapper'}>
+            <div className='about__photo-wrapper'>
+                <div className="about__photo-rectangle">
+                    <img src={props.photo} alt="Vladyslav Koziatnyk"/>
+                    <div className="photo-fill"></div>
                 </div>
-            </CSSTransition>
-        )
-    }
+                <svg width="400" height="500">
+                    <rect width="400" height="500" />
+                </svg>
+            </div>
+        </CSSTransition>
+    )
 }
+
+export default Photo;

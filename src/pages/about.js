@@ -8,7 +8,10 @@ import SkillsList from '../components/skillsList';
 import PublicationList from '../components/publicationList';
 import Button from '../components/button';
 import './about.scss';
+import {ifVisibleAll} from '../services/static';
 import GetData from '../services/getData';
+
+import {MoreIcon, EducationIcon, SkillsIcon} from '../resources/icons';
 
 import Triangle from '../components/triangle';
 import Rectangle from '../components/rectangle/rectangle';
@@ -43,14 +46,14 @@ export default class About extends Component {
 
     async componentWillUnmount() {
         await this.onScrollToTop();
-        document.querySelector('.content').removeEventListener('scroll', this.onScrollEvent)
+        document.querySelector('.content').removeEventListener('scroll', this.onScrollEvent);
     }
 
     onScrollEvent() {
-        this.ifVisibleAll(document.querySelectorAll('.subheader'), 'subheader-done');
-        this.ifVisibleAll(document.querySelectorAll('.education-list__item'), 'education-list__item-done');
-        this.ifVisibleAll(document.querySelectorAll('.skills-item'), 'skills-item-done');
-        this.ifVisibleAll(document.querySelectorAll('.publication__list ul li'), 'publication__li-done');
+        ifVisibleAll(document.querySelectorAll('.subheader'), 'subheader-done');
+        ifVisibleAll(document.querySelectorAll('.education-list__item'), 'education-list__item-done');
+        ifVisibleAll(document.querySelectorAll('.skills-item'), 'skills-item-done');
+        ifVisibleAll(document.querySelectorAll('.publication__list ul li'), 'publication__li-done');
     }
 
     onScrollToTop() {
@@ -66,21 +69,7 @@ export default class About extends Component {
     onLoadedSocial = (social) => {
         this.setState({social, loading: false})
     }
-
-    ifVisibleAll(selectors, animation) {
-        selectors.forEach((item) => {
-            let bounding = item.getBoundingClientRect();
-            if (
-                bounding.top >= 0 &&
-                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-            ) {
-                if(!item.classList.contains(animation)) {              
-                    item.classList.add(animation)
-                }
-            }
-        })
-    }
-
+    
     onScrollToDetails() {
         document.querySelector('.about__details').scrollIntoView({block: "center", behavior: "smooth"})
     }
@@ -136,18 +125,18 @@ export default class About extends Component {
                         </div>
                         <div className="row about__details">
                             <div className="col-6 about__education">
-                                <SubHeader loading={loading} icon={'img/education.svg'} title={'Образование'} />
+                                <SubHeader loading={loading} icon={EducationIcon} title={'Образование'} />
                                 <EducationList getData={this.getData.getEducationList}/>
                             </div>
                             <div className="col-6 about__skills">
                                 <Triangle classTriangle={'skills-triangle'} />
-                                <SubHeader loading={loading} icon={'img/skills.svg'} title={'Навыки'} />
+                                <SubHeader loading={loading} icon={SkillsIcon} title={'Навыки'} />
                                 <SkillsList getData={this.getData.getSkillsList}/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-6 about__more">
-                                <SubHeader loading={loading} icon={'img/more.svg'} title={'Дополнительная информация'} />
+                                <SubHeader loading={loading} icon={MoreIcon} title={'Дополнительная информация'} />
                                 <PublicationList getData={this.getData.getPublicationList} title={'Публикации'}/>
                             </div>
                         </div>

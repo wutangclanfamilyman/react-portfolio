@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import ToggleButton from './toggleButton';
-
 import './leftNavbar.scss';
 
 export default class LeftNavbar extends Component {
@@ -11,7 +10,7 @@ export default class LeftNavbar extends Component {
     }
 
     onLoadedNav() {
-        document.querySelector('.left-navbar').classList.add('left-navbar--animated')
+        document.querySelector('.left-navbar').classList.add('left-navbar--loaded')
     }
 
     render() {

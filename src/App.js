@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Home, About, Contacts, Portfolio, PortfolioItem} from './pages';
+import {Home, About, Contacts, Portfolio, PortfolioItem, NotFound} from './pages';
 import LeftNavbar from './components/leftNavbar';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -14,7 +14,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      activeMenu: false
+      activeMenu: false,
+      loading: true
     }
   }
 
@@ -49,7 +50,7 @@ export default class App extends Component {
                   {({match}) => (
                     <CSSTransition 
                       in={match != null} 
-                      timeout={300}
+                      timeout={500}
                       classNames="page"
                       unmountOnExit
                     >
@@ -61,7 +62,7 @@ export default class App extends Component {
                 </Route>
               ))}
 
-              <Route path='/portfolio/:id' render={
+              <Route exact path='/portfolio/:id' render={
                   ({match}) => {
                       const {id} = match.params;
                       return <CSSTransition 
@@ -74,6 +75,7 @@ export default class App extends Component {
                     </CSSTransition>
                   }
               } />
+              <Route path='*' component={NotFound} />
               {/* <Route path='/' exact component={Home} />
               <Route path='/about' exact component={About} />
               <Route path='/portfolio' exact component={Portfolio} />
