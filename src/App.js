@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Home, About, Contacts, Portfolio, PortfolioItem, NotFound} from './pages';
+import {Home, About, Contacts, Portfolio, PortfolioItem} from './pages';
 import LeftNavbar from './components/leftNavbar';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 

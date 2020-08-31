@@ -110,3 +110,16 @@
         right: 30px;
     }
 }
+@media screen and (max-width: 480px) {
+    .portfolio {
+        .container {
+            padding-top: 60px;
+        }
+    }
+    .portfolio-prev-slide,
+    .portfolio-next-slide {
+        width: 48px;
+        height: 48px!important;
+        
+    }
+}

@@ -93,7 +93,7 @@ export default class Contacts extends Component {
                         <Header header={contacts.title} loading={loading}/>
                         <CSSTransition in={!loading} classNames={'contacts__intro'} timeout={1000}>
                             <p className="contacts__intro">
-                                {contacts.text} <a className="contacts__link" href={`mailto:${contacts.email}`}>{contacts.email}</a>
+                                {contacts.text}
                             </p>
                         </CSSTransition>
                         <CSSTransition in={!loading} classNames={'contacts__location'} timeout={1100}>

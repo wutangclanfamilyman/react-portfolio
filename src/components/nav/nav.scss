@@ -124,19 +124,23 @@
     }
 }
 @media screen and (max-width: 480px) {
+    .nav {
+        height: calc(100% - 60px);
+    }
     .nav__list {
         ul {
             li {
-                margin-bottom: 20px;
+                margin-bottom: 18px;
                 a {
-                    font-size: 32px;
-                    line-height: 48px;
+                    font-size: 24px;
+                    line-height: 32px;
                 }
             }
         }
     }
     .nav__rights {
         font-size: 18px;
+        display: none;
     }
     .nav__header {
         line-height: 48px;
@@ -149,10 +153,10 @@
     .nav__list {
         ul {
             li {
-                margin-bottom: 20px;
+                margin-bottom: 15px;
                 a {
-                    font-size: 24px;
-                    line-height: 32px;
+                    font-size: 20px;
+                    line-height: 24px;
                 }
             }
         }

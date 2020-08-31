@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Header, Description, Button, LogoTop} from '../components/portfolioItem';
+import {Header, Description, LogoTop} from '../components/portfolioItem';
 import SubHeader from '../components/subheader';
 import Radium from 'radium';
 import {Link} from 'react-router-dom';
 import {ifVisibleAll} from '../services/static';
-
+import LinkBtn from '../components/link';
 import './portfolioItem.scss';
 import GetData from '../services/getData';
 import { CSSTransition } from 'react-transition-group';
@@ -73,7 +73,7 @@ class PortfolioItem extends Component {
 
     render() {
         
-        const {title, image, bgColor, release, liveLink, desktop, tablet, mobile, done, about, technologies} = this.state.data;
+        const {title, image, bgColor, release, link, desktop, tablet, mobile, done, about, technologies} = this.state.data;
 
         return (
             <div className="section portfolio-item">
@@ -83,7 +83,7 @@ class PortfolioItem extends Component {
                         <div className="portfolio-item__intro">
                             <Header title={title} loading={this.state.loading} />
                             <Description done={done} about={about} loading={this.state.loading} />
-                            <Button link={liveLink} loading={this.state.loading} />
+                            <LinkBtn loading={this.state.loading} label={'Посмотреть'} link={link} />
                             <CSSTransition in={!this.state.loading} classNames='portfolio-item__details' timeout={1200}>
                                 <div className="portfolio-item__details" onClick={this.onScrollToDetails}>
                                     <div className="arrow"></div>
@@ -94,15 +94,15 @@ class PortfolioItem extends Component {
                         </div>
                         <div className="row portfolio-item__info">
                             <div className="col-6 release">
-                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/release.svg'} title={'Release'} style={{backgroundColor: bgColor}} />
+                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/release.svg'} title={'Релиз'} style={{backgroundColor: bgColor}} />
                                 <div className="release__value">{release}</div>
-                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/technologies.svg'} title={'Technologies'} />
+                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/technologies.svg'} title={'Технологии'} />
                                 <ul>
                                    {this.renderTechnologiesList(technologies)} 
                                 </ul>
                             </div>
                             <div className="col-6 portfolio-item__screenshot">
-                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/screenshot.svg'} title={'Screenshot'} />
+                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/screenshot.svg'} title={'Скриншоты'} />
                                 <div className="screenshot-desktop">
                                     <img src={desktop} alt='desktop' />
                                 </div>

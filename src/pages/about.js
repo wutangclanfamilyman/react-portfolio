@@ -7,12 +7,10 @@ import EducationList from '../components/educationList';
 import SkillsList from '../components/skillsList';
 import PublicationList from '../components/publicationList';
 import Button from '../components/button';
+import LinkBtn from '../components/link';
 import './about.scss';
 import {ifVisibleAll} from '../services/static';
 import GetData from '../services/getData';
-
-import {MoreIcon, EducationIcon, SkillsIcon} from '../resources/icons';
-
 import Triangle from '../components/triangle';
 import Rectangle from '../components/rectangle/rectangle';
 import { CSSTransition } from 'react-transition-group';
@@ -140,7 +138,7 @@ export default class About extends Component {
                                 <PublicationList getData={this.getData.getPublicationList} title={'Публикации'}/>
                             </div>
                         </div>
-                        <Button label={'Curriculum vitae'} />
+                        <LinkBtn label={'Резюме'} link={about.resume} loading={loading} />
                     </div>
                 </div>
                 <Rectangle classRectangle={'about-polygon'} />

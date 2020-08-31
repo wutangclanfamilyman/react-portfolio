@@ -26,3 +26,8 @@
         background: linear-gradient(0deg, #0C2E49 0%, #8F9BB3 100% )    
     }
 }
+@media screen and (max-width: 480px) {
+    .left-navbar {
+        height: 60px;
+    }
+}

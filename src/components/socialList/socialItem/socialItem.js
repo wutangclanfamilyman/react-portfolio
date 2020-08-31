@@ -8,7 +8,7 @@ export default class SocialItem extends Component {
 
         return (
                 <li className="social-item">
-                    <a href={link}>
+                    <a href={`${link}`}>
                         <img src={icon} alt={title} />
                     </a>
                 </li>

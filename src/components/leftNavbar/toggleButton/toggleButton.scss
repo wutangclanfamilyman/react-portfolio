@@ -63,3 +63,9 @@
         left: auto;
     }
 }
+@media screen and (max-width: 768px) {
+    .toggle-btn {
+        top: 16px;
+        right: 16px;
+    }
+}
