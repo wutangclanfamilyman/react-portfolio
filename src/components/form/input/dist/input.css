@@ -38,4 +38,8 @@
   .form-group {
     margin-bottom: 20px;
   }
+
+  .form-input {
+    font-size: 16px;
+  }
 }

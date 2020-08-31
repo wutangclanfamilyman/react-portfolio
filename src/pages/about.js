@@ -125,18 +125,18 @@ export default class About extends Component {
                         </div>
                         <div className="row about__details">
                             <div className="col-6 about__education">
-                                <SubHeader loading={loading} icon={EducationIcon} title={'Образование'} />
+                                <SubHeader loading={loading} icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/education.svg'} title={'Образование'} />
                                 <EducationList getData={this.getData.getEducationList}/>
                             </div>
                             <div className="col-6 about__skills">
                                 <Triangle classTriangle={'skills-triangle'} />
-                                <SubHeader loading={loading} icon={SkillsIcon} title={'Навыки'} />
+                                <SubHeader loading={loading} icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/skills.svg'} title={'Навыки'} />
                                 <SkillsList getData={this.getData.getSkillsList}/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-6 about__more">
-                                <SubHeader loading={loading} icon={MoreIcon} title={'Дополнительная информация'} />
+                                <SubHeader loading={loading} icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/more.svg'} title={'Дополнительная информация'} />
                                 <PublicationList getData={this.getData.getPublicationList} title={'Публикации'}/>
                             </div>
                         </div>

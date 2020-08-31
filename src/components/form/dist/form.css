@@ -22,6 +22,42 @@
   bottom: 45px;
 }
 
+.form-result {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.contacts-form__submit {
+  width: 280px;
+  height: 80px;
+  margin-top: 50px;
+  border: none;
+  outline: none;
+  background-image: linear-gradient(90.21deg, #0C4049 1.48%, #546E89 51%, #0C4049 100%);
+  box-shadow: 1px 1px 10px #546D88;
+  background-size: 200% auto;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  font-size: 28px;
+  color: #fff;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  opacity: 0;
+}
+.contacts-form__submit:hover {
+  background-position: right center;
+}
+
+.contacts-form__submit-enter {
+  opacity: 0;
+}
+
+.contacts-form__submit-enter-done {
+  opacity: 1;
+}
+
 @media screen and (max-width: 1920px) {
   .form-input-textarea {
     margin-top: 30px;

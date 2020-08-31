@@ -27,7 +27,6 @@ export default class App extends Component {
       
   }
 
-
   render() {
 
     const {activeMenu} = this.state;
@@ -75,7 +74,6 @@ export default class App extends Component {
                     </CSSTransition>
                   }
               } />
-              <Route path='*' component={NotFound} />
               {/* <Route path='/' exact component={Home} />
               <Route path='/about' exact component={About} />
               <Route path='/portfolio' exact component={Portfolio} />

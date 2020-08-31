@@ -94,15 +94,15 @@ class PortfolioItem extends Component {
                         </div>
                         <div className="row portfolio-item__info">
                             <div className="col-6 release">
-                                <SubHeader icon={'../img/release.svg'} title={'Release'} style={{backgroundColor: bgColor}} />
+                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/release.svg'} title={'Release'} style={{backgroundColor: bgColor}} />
                                 <div className="release__value">{release}</div>
-                                <SubHeader icon={'../img/technologies.svg'} title={'Technologies'} />
+                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/technologies.svg'} title={'Technologies'} />
                                 <ul>
                                    {this.renderTechnologiesList(technologies)} 
                                 </ul>
                             </div>
                             <div className="col-6 portfolio-item__screenshot">
-                                <SubHeader icon={'../img/screenshot.svg'} title={'Screenshot'} />
+                                <SubHeader icon={'https://vladyslav-koziatnyk.pp.ua/wp-content/themes/vkportfoliotheme/img/screenshot.svg'} title={'Screenshot'} />
                                 <div className="screenshot-desktop">
                                     <img src={desktop} alt='desktop' />
                                 </div>
