@@ -4,7 +4,7 @@ import './button.scss';
 
 const Button = ({loading, type, label}) => {
     return (
-        <CSSTransition in={!loading} timeout={1000} classNames={'btn'}>
+        <CSSTransition in={!loading} timeout={100} classNames={'btn'}>
             <button type={type} className="btn-default">{label}</button>
         </CSSTransition>
     )

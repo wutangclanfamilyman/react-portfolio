@@ -128,12 +128,12 @@ class Slider extends Component {
         const {portfolioList, settings} = this.state;
         return (
             <div>
-                <CSSTransition in={!this.state.loading} classNames={'slider'} timeout={1000}>
+                <CSSTransition in={!this.state.loading} classNames={'slider'} timeout={100}>
                     <Slick ref={c => (this.slider = c)} {...settings}>
                         {this.renderSlides(portfolioList)}
                     </Slick>
                 </CSSTransition>
-                <CSSTransition in={!this.state.loading} classNames={'nav'} timeout={3000} >
+                <CSSTransition in={!this.state.loading} classNames={'nav'} timeout={200} >
                 <div className="portfolio-nav">
                     <div className="portfolio-prev-slide" onClick={this.onPrevSlide}>
                     </div>

@@ -84,7 +84,7 @@ class PortfolioItem extends Component {
                             <Header title={title} loading={this.state.loading} />
                             <Description done={done} about={about} loading={this.state.loading} />
                             <LinkBtn loading={this.state.loading} label={'Посмотреть'} link={link} />
-                            <CSSTransition in={!this.state.loading} classNames='portfolio-item__details' timeout={1200}>
+                            <CSSTransition in={!this.state.loading} classNames='portfolio-item__details' timeout={120}>
                                 <div className="portfolio-item__details" onClick={this.onScrollToDetails}>
                                     <div className="arrow"></div>
                                     <div className="arrow"></div>
@@ -114,7 +114,7 @@ class PortfolioItem extends Component {
                                 </div>
                             </div>
                         </div>
-                        <Link to="/portfolio" className="portfolio-item__back">Back to portfolio</Link>
+                        <Link to="/portfolio" className="portfolio-item__back">Назад в портфолио</Link>
                     </div>
                 </div>
             </div>

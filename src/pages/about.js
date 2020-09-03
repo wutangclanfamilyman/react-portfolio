@@ -99,7 +99,7 @@ export default class About extends Component {
                     <div className="container">
                         <Header loading={loading} header={about.title} />
                         <div className="row about-content">
-                            <CSSTransition in={!loading} classNames='about-intro' timeout={1000}>
+                            <CSSTransition in={!loading} classNames='about-intro' timeout={100}>
                                 <div className="col-6 about__intro">
                                     <div className="about__intro-title">
                                         {about.subheader}

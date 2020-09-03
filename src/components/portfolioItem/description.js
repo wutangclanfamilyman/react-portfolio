@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 
 const Description = ({done, about, loading}) => {
     return (
-        <CSSTransition in={!loading} timeout={1000} classNames="portfolio-item__description">
+        <CSSTransition in={!loading} timeout={100} classNames="portfolio-item__description">
             <div className="portfolio-item__description">
                 <div className="portfolio-item__done">{done}</div>
                 <div className="portfolio-item__about">{about}</div>

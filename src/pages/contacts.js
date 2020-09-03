@@ -91,17 +91,17 @@ export default class Contacts extends Component {
                 <div className="section-content">
                     <div className="container">
                         <Header header={contacts.title} loading={loading}/>
-                        <CSSTransition in={!loading} classNames={'contacts__intro'} timeout={1000}>
+                        <CSSTransition in={!loading} classNames={'contacts__intro'} timeout={100}>
                             <p className="contacts__intro">
                                 {contacts.text}
                             </p>
                         </CSSTransition>
-                        <CSSTransition in={!loading} classNames={'contacts__location'} timeout={1100}>
+                        <CSSTransition in={!loading} classNames={'contacts__location'} timeout={110}>
                             <div className="contacts__location">
                                 {this.renderAddress(contacts.address, loading)}
                             </div>
                         </CSSTransition>
-                        <CSSTransition in={!loading} classNames={'contacts__social'} timeout={1000}>
+                        <CSSTransition in={!loading} classNames={'contacts__social'} timeout={100}>
                             <div className="contacts__social">
                                 {this.renderSocial(contacts.social, loading)}
                             </div>

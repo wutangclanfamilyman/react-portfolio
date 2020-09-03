@@ -33,7 +33,7 @@ export default class Textarea extends Component {
         const {label, id, value, onChange, loading} = this.props;
 
         return (
-            <CSSTransition in={!loading} classNames={'form-group-textarea'} timeout={1200}>
+            <CSSTransition in={!loading} classNames={'form-group-textarea'} timeout={120}>
                 <div className="form-group form-group-textarea">
                     <textarea className="form-input form-input-textarea" id={id} name={id} onChange={onChange} value={value} onFocus={this.onFocus} onBlur={this.onBlur} />
                     <span className={this.state.onFocused ? 'on-focused' : ''} id="label-form-message">{label}</span>

@@ -4,7 +4,7 @@ import './defaultBtn.scss';
 
 const DefaultBtn = ({label, loading}) => {
     return (
-        <CSSTransition in={!loading} timeout={1000} classNames={'link'}>
+        <CSSTransition in={!loading} timeout={100} classNames={'link'}>
             <button disabled={true} className="btn-default">{label}</button>
         </CSSTransition>
     )

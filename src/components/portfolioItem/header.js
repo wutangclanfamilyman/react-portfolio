@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 
 const Header = ({title, loading}) => {
     return (
-        <CSSTransition in={!loading} classNames="portfolio-item__header" timeout={500}>
+        <CSSTransition in={!loading} classNames="portfolio-item__header" timeout={50}>
             <div className="portfolio-item__header">
                 <Circle classCircle={'portfolio-item__header-circle'} />
                 {title}

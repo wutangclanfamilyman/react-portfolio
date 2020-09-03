@@ -127,10 +127,10 @@ export default class Form extends Component {
 
         return (
             <form id='contacts-form'>
-                <Input label={'Name'} id={'contacts-form-name'} span={'label-form-name'} loading={loading} value={this.state.name} onChange={this.onChangeName} />
+                <Input label={'Имя'} id={'contacts-form-name'} span={'label-form-name'} loading={loading} value={this.state.name} onChange={this.onChangeName} />
                 <Input label={'E-mail'} id={'contacts-form-email'} span={'label-form-email'} loading={loading} value={this.state.email} onChange={this.onChangeEmail} />
-                <Textarea label={'Message'} id={'contacts-form-message'} span={'label-form-message'} loading={loading} value={this.state.message} onChange={this.onChangeMessage} />
-                <CSSTransition in={!loading} classNames={'contacts-form__submit'} timeout={1000}>
+                <Textarea label={'Сообщение'} id={'contacts-form-message'} span={'label-form-message'} loading={loading} value={this.state.message} onChange={this.onChangeMessage} />
+                <CSSTransition in={!loading} classNames={'contacts-form__submit'} timeout={100}>
                     <button onClick={this.onSubmitForm} className="contacts-form__submit" >Отправить</button>
                 </CSSTransition>
                 <div className="form-result"></div>
